@@ -87,7 +87,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-zinc-50 text-zinc-900 font-sans selection:bg-indigo-100 selection:text-indigo-900">
+    <div className="min-h-screen bg-zinc-950 text-zinc-100 font-sans selection:bg-indigo-500/30 selection:text-indigo-200">
       <div className="max-w-4xl mx-auto px-4 py-12 sm:px-6 lg:px-8">
         
         {/* Header */}
@@ -96,13 +96,13 @@ export default function App() {
           animate={{ opacity: 1, y: 0 }}
           className="text-center mb-12"
         >
-          <div className="inline-flex items-center justify-center p-3 bg-indigo-100 rounded-2xl mb-4">
-            <Link className="w-8 h-8 text-indigo-600" />
+          <div className="inline-flex items-center justify-center p-3 bg-indigo-500/10 rounded-2xl mb-4">
+            <Link className="w-8 h-8 text-indigo-400" />
           </div>
-          <h1 className="text-4xl font-bold tracking-tight text-zinc-900 sm:text-5xl mb-4">
+          <h1 className="text-4xl font-bold tracking-tight text-zinc-100 sm:text-5xl mb-4">
             Shorten Your Links
           </h1>
-          <p className="text-lg text-zinc-500 max-w-2xl mx-auto">
+          <p className="text-lg text-zinc-400 max-w-2xl mx-auto">
             Create clean, memorable short links in seconds. Track clicks and manage your URLs all in one place.
           </p>
         </motion.div>
@@ -112,20 +112,20 @@ export default function App() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1 }}
-          className="bg-white rounded-3xl shadow-xl shadow-zinc-200/50 p-6 sm:p-8 mb-12 border border-zinc-100"
+          className="bg-zinc-900 rounded-3xl shadow-2xl shadow-black/50 p-6 sm:p-8 mb-12 border border-zinc-800"
         >
           <form onSubmit={handleSubmit} className="relative">
             <div className="flex flex-col sm:flex-row gap-4">
               <div className="relative flex-grow">
                 <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                  <Link className="h-5 w-5 text-zinc-400" />
+                  <Link className="h-5 w-5 text-zinc-500" />
                 </div>
                 <input
                   type="url"
                   value={url}
                   onChange={(e) => setUrl(e.target.value)}
                   placeholder="Paste your long URL here... (https://...)"
-                  className="block w-full pl-11 pr-4 py-4 bg-zinc-50 border border-zinc-200 rounded-2xl text-zinc-900 placeholder-zinc-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all"
+                  className="block w-full pl-11 pr-4 py-4 bg-zinc-950 border border-zinc-800 rounded-2xl text-zinc-100 placeholder-zinc-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all"
                   required
                 />
               </div>
@@ -147,9 +147,9 @@ export default function App() {
               <motion.p 
                 initial={{ opacity: 0, height: 0 }}
                 animate={{ opacity: 1, height: 'auto' }}
-                className="mt-3 text-sm text-red-500 flex items-center"
+                className="mt-3 text-sm text-red-400 flex items-center"
               >
-                <span className="w-1.5 h-1.5 rounded-full bg-red-500 mr-2" />
+                <span className="w-1.5 h-1.5 rounded-full bg-red-400 mr-2" />
                 {error}
               </motion.p>
             )}
@@ -163,21 +163,21 @@ export default function App() {
           transition={{ delay: 0.2 }}
         >
           <div className="flex items-center justify-between mb-6">
-            <h2 className="text-xl font-semibold text-zinc-900 flex items-center">
-              <BarChart2 className="w-5 h-5 mr-2 text-zinc-400" />
+            <h2 className="text-xl font-semibold text-zinc-100 flex items-center">
+              <BarChart2 className="w-5 h-5 mr-2 text-zinc-500" />
               Recent Links
             </h2>
-            <span className="text-sm font-medium text-zinc-500 bg-zinc-100 px-3 py-1 rounded-full">
+            <span className="text-sm font-medium text-zinc-400 bg-zinc-800 px-3 py-1 rounded-full">
               {links.length} total
             </span>
           </div>
 
           {links.length === 0 ? (
-            <div className="text-center py-16 bg-white rounded-3xl border border-zinc-100 border-dashed">
-              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-zinc-50 mb-4">
-                <Link className="w-8 h-8 text-zinc-300" />
+            <div className="text-center py-16 bg-zinc-900 rounded-3xl border border-zinc-800 border-dashed">
+              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-zinc-950 mb-4">
+                <Link className="w-8 h-8 text-zinc-700" />
               </div>
-              <h3 className="text-lg font-medium text-zinc-900 mb-1">No links yet</h3>
+              <h3 className="text-lg font-medium text-zinc-100 mb-1">No links yet</h3>
               <p className="text-zinc-500">Shorten your first URL above to get started.</p>
             </div>
           ) : (
@@ -188,7 +188,7 @@ export default function App() {
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.05 }}
-                  className="bg-white rounded-2xl p-5 border border-zinc-100 shadow-sm hover:shadow-md transition-all group"
+                  className="bg-zinc-900 rounded-2xl p-5 border border-zinc-800 shadow-sm hover:shadow-md hover:border-zinc-700 transition-all group"
                 >
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                     
@@ -198,7 +198,7 @@ export default function App() {
                           href={`/${link.shortCode}`}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-lg font-semibold text-indigo-600 hover:text-indigo-700 hover:underline truncate flex items-center"
+                          className="text-lg font-semibold text-indigo-400 hover:text-indigo-300 hover:underline truncate flex items-center"
                         >
                           {window.location.host}/{link.shortCode}
                           <ExternalLink className="w-4 h-4 ml-1.5 opacity-0 group-hover:opacity-100 transition-opacity" />
@@ -209,24 +209,24 @@ export default function App() {
                       </p>
                     </div>
 
-                    <div className="flex items-center gap-4 sm:gap-6 shrink-0 border-t sm:border-t-0 pt-4 sm:pt-0 border-zinc-100">
+                    <div className="flex items-center gap-4 sm:gap-6 shrink-0 border-t sm:border-t-0 pt-4 sm:pt-0 border-zinc-800">
                       <div className="flex flex-col items-end">
-                        <span className="text-2xl font-bold text-zinc-900 leading-none mb-1">
+                        <span className="text-2xl font-bold text-zinc-100 leading-none mb-1">
                           {link.clicks}
                         </span>
-                        <span className="text-xs font-medium text-zinc-400 uppercase tracking-wider">
+                        <span className="text-xs font-medium text-zinc-500 uppercase tracking-wider">
                           Clicks
                         </span>
                       </div>
                       
-                      <div className="w-px h-10 bg-zinc-100 hidden sm:block" />
+                      <div className="w-px h-10 bg-zinc-800 hidden sm:block" />
 
                       <button
                         onClick={() => copyToClipboard(link.shortCode)}
                         className={`p-2.5 rounded-xl transition-all flex items-center justify-center ${
                           copiedCode === link.shortCode 
-                            ? 'bg-emerald-50 text-emerald-600' 
-                            : 'bg-zinc-50 text-zinc-600 hover:bg-zinc-100 hover:text-zinc-900'
+                            ? 'bg-emerald-500/10 text-emerald-400' 
+                            : 'bg-zinc-950 text-zinc-400 hover:bg-zinc-800 hover:text-zinc-100'
                         }`}
                         title="Copy short link"
                       >
