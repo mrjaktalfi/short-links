@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  link-shortener:
+    build: .
+    container_name: link-shortener
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./data:/app/data
+    environment:
+      - NODE_ENV=production
+      # If you use a reverse proxy like Nginx or Traefik, 
+      # you can configure it to point to port 3000 of this container.
+    labels:
+      - "com.centurylinklabs.watchtower.enable=true"

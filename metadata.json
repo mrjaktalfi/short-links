@@ -1,0 +1,5 @@
+{
+  "name": "Link Shortener",
+  "description": "A fully working link shortening and link redirect system.",
+  "requestFramePermissions": []
+}
