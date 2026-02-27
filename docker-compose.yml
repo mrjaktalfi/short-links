@@ -1,8 +1,7 @@
-version: '3.8'
-
 services:
   link-shortener:
     build: .
+    image: link-shortener:latest
     container_name: link-shortener
     restart: unless-stopped
     ports:
