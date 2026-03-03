@@ -21,7 +21,7 @@ jobs:
           debug: true
           script: |
             cd /docker/short-link
-            git pull origin main  # Adjust 'main' to your branch if different
+            # git pull origin main  # Adjust 'main' to your branch if different
             docker compose down  # Stops existing containers (use 'docker-compose' if your VPS uses the old command)
             docker compose up -d --build  # Rebuilds and starts containers in detached mode
             # Optional: Add more commands if needed, e.g.,
