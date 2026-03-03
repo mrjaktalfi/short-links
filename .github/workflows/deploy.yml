@@ -19,12 +19,10 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: 22  # Change if your SSH port is not 22
           debug: true
-          script: |
-            cd /docker/short-link
-            # git pull origin main  # Adjust 'main' to your branch if different
-            docker compose down  # Stops existing containers (use 'docker-compose' if your VPS uses the old command)
-            docker compose up -d --build  # Rebuilds and starts containers in detached mode
-            # Optional: Add more commands if needed, e.g.,
-            # docker system prune -f  # Clean up unused images/volumes (use cautiously)
-            # Or specific service restarts: docker compose restart your-service-name
+script: |
+ cd /docker/short-link
+ git fetch --all
+ git reset --hard origin/main
+ docker compose down
+ docker compose up -d --build
           
