@@ -1,0 +1,28 @@
+name: Deploy to VPS
+
+on:
+  push:
+    branches: [ main ]  # Triggers on pushes to main; change to your branch if different (e.g., master)
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: SSH to VPS and deploy updates
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: 76.13.155.188
+          username: root
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          port: 22  # Change if your SSH port is not 22
+          debug: true
+          script: |
+           cd /docker/short-link
+           git fetch --all
+           git reset --hard origin/main
+           docker compose down
+           docker compose up -d --build
+          
