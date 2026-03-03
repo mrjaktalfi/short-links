@@ -1,0 +1,28 @@
+name: Deploy to VPS
+
+on:
+  push:
+    branches: [ main ]  # Triggers on pushes to main; change to your branch if different (e.g., master)
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: SSH to VPS and deploy updates
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          port: 22  # Change if your SSH port is not 22
+          script: |
+            cd /docker/short-link
+            git pull origin main  # Adjust 'main' to your branch if different
+            docker compose down  # Stops existing containers (use 'docker-compose' if your VPS uses the old command)
+            docker compose up -d --build  # Rebuilds and starts containers in detached mode
+            # Optional: Add more commands if needed, e.g.,
+            # docker system prune -f  # Clean up unused images/volumes (use cautiously)
+            # Or specific service restarts: docker compose restart your-service-name
