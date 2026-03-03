@@ -87,7 +87,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-zinc-950 text-zinc-100 font-sans selection:bg-red-500/30 selection:text-red-200">
+    <div className="min-h-screen bg-zinc-950 text-zinc-100 font-sans selection:bg-indigo-500/30 selection:text-indigo-200">
       <div className="max-w-4xl mx-auto px-4 py-12 sm:px-6 lg:px-8">
         
         {/* Header */}
@@ -96,8 +96,8 @@ export default function App() {
           animate={{ opacity: 1, y: 0 }}
           className="text-center mb-12"
         >
-          <div className="inline-flex items-center justify-center p-3 bg-red-500/10 rounded-2xl mb-4">
-            <Link className="w-8 h-8 text-red-400" />
+          <div className="inline-flex items-center justify-center p-3 bg-indigo-500/10 rounded-2xl mb-4">
+            <Link className="w-8 h-8 text-indigo-400" />
           </div>
           <h1 className="text-4xl font-bold tracking-tight text-zinc-100 sm:text-5xl mb-4">
             Shorten Your Links
@@ -125,14 +125,14 @@ export default function App() {
                   value={url}
                   onChange={(e) => setUrl(e.target.value)}
                   placeholder="Paste your long URL here... (https://...)"
-                  className="block w-full pl-11 pr-4 py-4 bg-zinc-950 border border-zinc-800 rounded-2xl text-zinc-100 placeholder-zinc-500 focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all"
+                  className="block w-full pl-11 pr-4 py-4 bg-zinc-950 border border-zinc-800 rounded-2xl text-zinc-100 placeholder-zinc-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent transition-all"
                   required
                 />
               </div>
               <button
                 type="submit"
                 disabled={loading}
-                className="inline-flex items-center justify-center px-8 py-4 border border-transparent text-base font-medium rounded-2xl text-white bg-red-600 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 disabled:opacity-50 disabled:cursor-not-allowed transition-all shadow-sm hover:shadow-md"
+                className="inline-flex items-center justify-center px-8 py-4 border border-transparent text-base font-medium rounded-2xl text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 disabled:opacity-50 disabled:cursor-not-allowed transition-all shadow-sm hover:shadow-md"
               >
                 {loading ? (
                   <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
@@ -198,7 +198,7 @@ export default function App() {
                           href={`/${link.shortCode}`}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-lg font-semibold text-red-400 hover:text-red-300 hover:underline truncate flex items-center"
+                          className="text-lg font-semibold text-indigo-400 hover:text-indigo-300 hover:underline truncate flex items-center"
                         >
                           {window.location.host}/{link.shortCode}
                           <ExternalLink className="w-4 h-4 ml-1.5 opacity-0 group-hover:opacity-100 transition-opacity" />
