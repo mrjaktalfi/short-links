@@ -19,11 +19,10 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: 22  # Change if your SSH port is not 22
           debug: true
-          script: | 
-    
-          cd /docker/short-link
- git fetch --all
- git reset --hard origin/main
- docker compose down
- docker compose up -d --build
+          script: |
+           cd /docker/short-link
+           git fetch --all
+           git reset --hard origin/main
+           docker compose down
+           docker compose up -d --build
           
