@@ -14,7 +14,7 @@ jobs:
       - name: SSH to VPS and deploy updates
         uses: appleboy/ssh-action@v1.0.3
         with:
-          host: ${{ secrets.HOST }}
+          host: ${{ secrets.INPUT_HOST }}
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: 22  # Change if your SSH port is not 22
